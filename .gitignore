@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+output.txt
+error_log.txt
+log.txt
+
+# Local scripts
+run_script.bat
+run_script.txt
+
+# Temporary
+proof.txt
+
+# VS Code
+.vscode/
+
+# Docker
+docker
+[internal]

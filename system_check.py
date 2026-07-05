@@ -1,34 +1,42 @@
+import psutil
 import subprocess
-import os
 import traceback
+import platform
 
 try:
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    print("NEW VERSION RUNNING")
 
-    print("Script started")
+    disk = psutil.disk_usage('/')
+    cpu = psutil.cpu_percent(interval=1)
+    memory = psutil.virtual_memory()
 
-    # Disk Check
-    disk = subprocess.run(
-        "wmic logicaldisk get size,freespace,caption",
-        capture_output=True,
-        text=True,
-        shell=True
-    )
+    if platform.system() == "Windows":
+        ping_cmd = ["ping", "-n", "4", "google.com"]
+    else:
+        ping_cmd = ["ping", "-c", "4", "google.com"]
 
-    # Network Check
     ping = subprocess.run(
-        ["ping", "-n", "4", "google.com"],
-        capture_output=True,
-        text=True
+    ping_cmd,
+    capture_output=True,
+    text=True
     )
 
-    # Save Output
+    output = f"""
+CPU Usage: {cpu}%
+Memory Usage: {memory.percent}%
+Disk Usage: {disk.percent}%
+
+Ping Output:
+{ping.stdout}
+"""
+
+    print(output)   # 👈 THIS LINE ADDED
+
     with open("output.txt", "w") as f:
-        f.write(disk.stdout)
-        f.write(ping.stdout)
+        f.write(output)
 
 except Exception as e:
+    print("ERROR:", e)   # 👈 IMPORTANT
     with open("error_log.txt", "w") as f:
         f.write(str(e) + "\n")
         f.write(traceback.format_exc())
-
