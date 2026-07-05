@@ -17,11 +17,14 @@ pipeline {
         }
 
         stage('Run Container') {
-            steps {
-                bat 'docker run --rm system-health'
-            }
-        }
-
+    steps {
+        bat '''
+        docker run --rm ^
+        -v "%WORKSPACE%\\logs:/app/logs" ^
+        system-health
+        '''
+    }
+}
         stage('Verify Build') {
             steps {
                 echo 'Build completed successfully!'
