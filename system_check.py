@@ -2,6 +2,14 @@ import psutil
 import subprocess
 import traceback
 import platform
+import json
+
+with open("config.json", "r") as f:
+    config = json.load(f)
+
+host = config["host"]
+ping_count = config["ping_count"]
+log_directory = config["log_directory"]
 
 try:
     print("NEW VERSION RUNNING")
@@ -11,9 +19,9 @@ try:
     memory = psutil.virtual_memory()
 
     if platform.system() == "Windows":
-        ping_cmd = ["ping", "-n", "4", "google.com"]
+        ping_cmd = ["ping", "-n", str(ping_count), host]
     else:
-        ping_cmd = ["ping", "-c", "4", "google.com"]
+        ping_cmd = ["ping", "-c", str(ping_count), host]
 
     ping = subprocess.run(
     ping_cmd,

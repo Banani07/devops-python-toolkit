@@ -1,0 +1,7 @@
+{
+    "host": "openai.com",
+    "ping_count": 2,
+    "log_directory": "logs",
+    "cpu_threshold": 80,
+    "memory_threshold": 80
+}

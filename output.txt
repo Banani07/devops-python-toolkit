@@ -1,19 +1,16 @@
-Caption  FreeSpace     Size          
 
-C:       71508418560   269796503552  
+CPU Usage: 12.5%
+Memory Usage: 83.5%
+Disk Usage: 77.1%
 
-D:       155282882560  220200955904  
+Ping Output:
 
+Pinging openai.com [172.64.154.211] with 32 bytes of data:
+Reply from 172.64.154.211: bytes=32 time=15ms TTL=58
+Reply from 172.64.154.211: bytes=32 time=16ms TTL=58
 
-
-
-Pinging google.com [142.250.207.174] with 32 bytes of data:
-Reply from 142.250.207.174: bytes=32 time=29ms TTL=118
-Reply from 142.250.207.174: bytes=32 time=32ms TTL=118
-Reply from 142.250.207.174: bytes=32 time=30ms TTL=118
-Reply from 142.250.207.174: bytes=32 time=38ms TTL=118
-
-Ping statistics for 142.250.207.174:
-    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Ping statistics for 172.64.154.211:
+    Packets: Sent = 2, Received = 2, Lost = 0 (0% loss),
 Approximate round trip times in milli-seconds:
-    Minimum = 29ms, Maximum = 38ms, Average = 32ms
+    Minimum = 15ms, Maximum = 16ms, Average = 15ms
+
